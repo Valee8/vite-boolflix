@@ -3,6 +3,9 @@
 import AppSearch from './AppSearch.vue'
 import AppLogo from './AppLogo.vue'
 
+import { store } from '../store.js';
+
+
 
 export default {
     name: "AppHeader",
