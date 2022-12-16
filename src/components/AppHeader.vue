@@ -1,12 +1,14 @@
 <script>
 
 import AppSearch from './AppSearch.vue'
+import AppLogo from './AppLogo.vue'
 
 
 export default {
     name: "AppSearch",
     components: {
-        AppSearch
+        AppSearch,
+        AppLogo
     },
     data() {
         return {
