@@ -1,7 +1,13 @@
 <script>
 
+import AppSearch from './AppSearch.vue'
+
+
 export default {
-    name: "AppHeader",
+    name: "AppSearch",
+    components: {
+        AppSearch
+    },
     data() {
         return {
         }
@@ -15,6 +21,7 @@ export default {
     <h1>
         AppHeader
     </h1>
+
 
 </template>
 
