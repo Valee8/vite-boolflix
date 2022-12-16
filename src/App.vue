@@ -17,6 +17,22 @@ export default {
     return {
       store,
     }
+  },
+  methods: {
+    getFilms() {
+      let myUrl = store.apiURL;
+      axios
+        .get(myUrl)
+        .then(res => {
+          store.cardsList = res.data.results;
+        })
+        .catch(error => {
+          console.log("Errori: ", error);
+        });
+    }
+  },
+  mounted() {
+    this.getFilms();
   }
 }
 </script>
