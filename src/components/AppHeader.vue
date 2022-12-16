@@ -3,8 +3,9 @@
 import AppSearch from './AppSearch.vue'
 import AppLogo from './AppLogo.vue'
 
-import { store } from '../store.js';
+import axios from 'axios';
 
+import { store } from '../store.js';
 
 
 export default {
@@ -16,6 +17,23 @@ export default {
     data() {
         return {
         }
+    },
+    methods: {
+        getFilms() {
+            let myUrl = store.apiURL;
+
+            axios
+                .get(myUrl)
+                .then(res => {
+                    store.cardsList = res.data.results;
+                })
+                .catch(error => {
+                    console.log("Errori: ", error);
+                });
+        }
+    },
+    mounted() {
+        this.getFilms();
     }
 }
 
@@ -24,7 +42,7 @@ export default {
 <template>
 
     <header>
-        <AppSearch />
+        <AppSearch @search="getFilms" />
     </header>
 
 
