@@ -18,9 +18,7 @@ export default {
 
 <template>
 
-    <h1>
-        AppMain
-    </h1>
+    <ListCards />
 
 </template>
 
