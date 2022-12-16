@@ -24,9 +24,7 @@ export default {
 <template>
 
     <header>
-        <h1>
-            AppHeader
-        </h1>
+        <AppSearch />
     </header>
 
 
