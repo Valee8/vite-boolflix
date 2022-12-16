@@ -22,6 +22,16 @@ export default {
         getFilms() {
             let myUrl = store.apiURL;
 
+            if (store.searchText != "") {
+                myUrl += `&query=${store.searchText}`;
+
+                console.log(myUrl);
+            }
+
+            else {
+                myUrl += "&query=?";
+            }
+
             axios
                 .get(myUrl)
                 .then(res => {
