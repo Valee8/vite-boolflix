@@ -19,7 +19,7 @@ export default {
     <div class="container">
         <form>
             <input type="search" placeholder="Cerca" v-model="store.searchText">
-            <button type="submit">Invia</button>
+            <button type="submit" @click.prevent="$emit('search')">Invia</button>
         </form>
     </div>
 
