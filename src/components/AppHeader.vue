@@ -53,7 +53,15 @@ export default {
 <template>
 
     <header>
-        <AppSearch @search="getFilms" />
+        <div class="container">
+            <div class="logo">
+                <AppLogo />
+            </div>
+
+            <div class="search">
+                <AppSearch @search="getFilms" />
+            </div>
+        </div>
     </header>
 
 
@@ -61,4 +69,10 @@ export default {
 
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 </style>
