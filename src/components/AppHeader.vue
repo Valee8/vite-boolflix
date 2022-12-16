@@ -5,7 +5,7 @@ import AppLogo from './AppLogo.vue'
 
 
 export default {
-    name: "AppSearch",
+    name: "AppHeader",
     components: {
         AppSearch,
         AppLogo
