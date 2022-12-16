@@ -4,6 +4,7 @@ export default {
     props: ["info"],
     data() {
         return {
+            int: parseInt(this.info.vote_average / 2),
             flags: [
                 {
                     flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_italy.png',
@@ -80,8 +81,14 @@ export default {
 
     Lingua: <img :src="getFlag" :alt="info.original_language">
 
-    <div class="vote">
+    <div class="vote" v-if="info.vote_average">
         Voto: {{ info.vote_average }}
+        <div v-for="stars in int">
+            <font-awesome-icon icon="fa-solid fa-star" />
+        </div>
+        <div v-for="stars in 5 - int">
+            <font-awesome-icon icon="fa-regular fa-star" />
+        </div>
     </div>
 
 </template>
