@@ -1,7 +1,13 @@
 <script>
 
+import ListCards from './ListCards.vue'
+
+
 export default {
     name: "AppMain",
+    components: {
+        ListCards
+    },
     data() {
         return {
         }
