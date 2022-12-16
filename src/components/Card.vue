@@ -2,7 +2,45 @@
 
 export default {
     name: "Card",
-    props: ["info"]
+    props: ["info"],
+    data() {
+        return {
+            flags: [
+                {
+                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_italy.png',
+                    text: 'it'
+                },
+                {
+                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_france.png',
+                    text: 'fr'
+                },
+                {
+                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_england.png',
+                    text: 'en'
+                },
+                {
+                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_japan.png',
+                    text: 'ja'
+                },
+                {
+                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_germany.png',
+                    text: 'de'
+                },
+                {
+                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_spain.png',
+                    text: 'es'
+                },
+                {
+                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_portugal.png',
+                    text: 'pt'
+                },
+                {
+                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_poland.png',
+                    text: 'pl'
+                }
+            ]
+        }
+    }
 }
 </script>
 
@@ -16,8 +54,10 @@ export default {
         Titolo originale: {{ info.original_title }}
     </h3>
 
-    <div class="lang">
-        Lingua: {{ info.original_language }}
+    <div class="lang" v-for="(icons, index) in flags" :key="index">
+        <div v-if="info.original_language === icons.text">
+            Lingua: <img :src="icons.flag" :title="info.original_language">
+        </div>
     </div>
 
     <div class="vote">
