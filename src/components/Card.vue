@@ -74,7 +74,7 @@ export default {
         Nome originale: {{ info.original_name }}
     </h3>
 
-    Lingua: <img :src="getFlag">
+    Lingua: <img :src="getFlag" :alt="info.original_language">
 
     <div class="vote">
         Voto: {{ info.vote_average }}
