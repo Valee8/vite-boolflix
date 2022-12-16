@@ -1,5 +1,4 @@
 <script>
-
 export default {
     name: "Card",
     props: ["info"],
@@ -40,6 +39,19 @@ export default {
                 }
             ]
         }
+    },
+    computed: {
+        getFlag() {
+
+            for (let i = 0; i < this.flags.length; i++) {
+                if (this.info.original_language === this.flags[i].text) {
+
+                    return this.flags[i].flag
+
+                }
+            }
+
+        }
     }
 }
 </script>
@@ -54,11 +66,7 @@ export default {
         Titolo originale: {{ info.original_title }}
     </h3>
 
-    <div class="lang" v-for="(icons, index) in flags" :key="index">
-        <div v-if="info.original_language === icons.text">
-            Lingua: <img :src="icons.flag" :title="info.original_language">
-        </div>
-    </div>
+    Lingua: <img :src="getFlag">
 
     <div class="vote">
         Voto: {{ info.vote_average }}
