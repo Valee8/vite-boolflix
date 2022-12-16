@@ -16,6 +16,13 @@ export default {
 
 <template>
 
+    <div class="container">
+        <form>
+            <input type="search" placeholder="Cerca">
+            <button type="submit">Invia</button>
+        </form>
+    </div>
+
 
 </template>
 
