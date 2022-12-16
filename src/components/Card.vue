@@ -58,6 +58,10 @@ export default {
 
 <template>
 
+    <img v-if="info.poster_path" :src="'https://image.tmdb.org/t/p/w342/' + info.poster_path"
+        :alt="info.title ? info.title : info.name">
+
+
     <h2 v-if="info.title">
         Titolo: {{ info.title }}
     </h2>
