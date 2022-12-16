@@ -2,11 +2,19 @@
 import AppMain from './components/AppMain.vue'
 import AppHeader from './components/AppHeader.vue'
 
+import { store } from './store.js';
+
+
 export default {
   name: "App",
   components: {
     AppMain,
     AppHeader
+  },
+  data() {
+    return {
+      store,
+    }
   }
 }
 </script>
@@ -17,10 +25,10 @@ export default {
 
   <main>
 
-
     <AppMain />
 
   </main>
+
 </template>
 
 <style lang="scss">
