@@ -2,6 +2,8 @@
 import AppMain from './components/AppMain.vue'
 import AppHeader from './components/AppHeader.vue'
 
+import axios from 'axios';
+
 import { store } from './store.js';
 
 
