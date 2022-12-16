@@ -30,4 +30,9 @@ export default {
 
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
+
+.card {
+    width: calc(20% - 20px);
+    margin: 10px;
+}
 </style>
