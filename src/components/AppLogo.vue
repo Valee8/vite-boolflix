@@ -4,6 +4,7 @@ export default {
     name: "AppLogo",
     data() {
         return {
+            title: "Boolflix"
         }
     }
 }
@@ -11,6 +12,10 @@ export default {
 </script>
 
 <template>
+
+    <h1>
+        {{ title }}
+    </h1>
 
 
 </template>
