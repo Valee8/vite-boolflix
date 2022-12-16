@@ -58,12 +58,20 @@ export default {
 
 <template>
 
-    <h2>
+    <h2 v-if="info.title">
         Titolo: {{ info.title }}
     </h2>
 
-    <h3>
+    <h2 v-else>
+        Nome: {{ info.name }}
+    </h2>
+
+    <h3 v-if="info.original_title">
         Titolo originale: {{ info.original_title }}
+    </h3>
+
+    <h3 v-else>
+        Nome originale: {{ info.original_name }}
     </h3>
 
     Lingua: <img :src="getFlag">
