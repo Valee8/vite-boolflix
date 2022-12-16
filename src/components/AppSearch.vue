@@ -18,7 +18,7 @@ export default {
 
     <div class="container">
         <form>
-            <input type="search" placeholder="Cerca">
+            <input type="search" placeholder="Cerca" v-model="store.searchText">
             <button type="submit">Invia</button>
         </form>
     </div>
