@@ -89,7 +89,9 @@ export default {
         Nome originale: {{ info.original_name }}
     </h3>
 
-    Lingua: <img :src="getFlag" :alt="info.original_language" class="flag">
+    Lingua: <img :src="getFlag" :alt="info.original_language" class="flag" v-if="info.original_language">
+
+    <span v-else> Non presente</span>
 
     <div class="vote" v-if="info.vote_average">
         Voto: {{ info.vote_average }}
