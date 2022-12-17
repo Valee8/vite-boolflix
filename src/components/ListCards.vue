@@ -21,10 +21,9 @@ export default {
 
 <template>
 
-    <div v-for="card in store.cardsList" :key="card.id" class="card">
+    <div v-for="card in store.cardsList" :key="card.id" :class="card.poster_path ? 'card' : 'card-no-path'">
         <Card :info="card" />
     </div>
-
 
 </template>
 
@@ -34,5 +33,9 @@ export default {
 .card {
     width: calc(20% - 20px);
     margin: 10px;
+}
+
+.card-no-path {
+    display: none;
 }
 </style>

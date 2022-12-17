@@ -53,16 +53,6 @@ export default {
                 }
             }
 
-        },
-        getImage() {
-            if (this.info.poster_path) {
-                this.image = "https://image.tmdb.org/t/p/w342/" + this.info.poster_path;
-            }
-            else {
-                this.image = "/img/copertina-non-disponibile.jpg";
-            }
-
-            return this.image
         }
     }
 }
@@ -70,7 +60,7 @@ export default {
 
 <template>
 
-    <img :src="getImage" :alt="info.title ? info.title : info.name">
+    <img :src="'https://image.tmdb.org/t/p/w342/' + info.poster_path" :alt="info.title ? info.title : info.name">
 
 
     <h2 v-if="info.title">
@@ -81,11 +71,11 @@ export default {
         Nome: {{ info.name }}
     </h2>
 
-    <h3 v-if="info.original_title">
+    <h3 v-if="info.original_title && info.original_title != info.title">
         Titolo originale: {{ info.original_title }}
     </h3>
 
-    <h3 v-else>
+    <h3 v-else-if="info.original_original && info.original_title != info.title">
         Nome originale: {{ info.original_name }}
     </h3>
 
