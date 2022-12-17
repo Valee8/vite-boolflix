@@ -65,25 +65,36 @@ export default {
 
     <div class="text-card">
         <h2 v-if="info.title">
-            Titolo: {{ info.title }}
+            <span class="title">
+                Titolo:
+            </span> {{ info.title }}
         </h2>
 
         <h2 v-else>
-            Nome: {{ info.name }}
+            <span class="title">
+                Nome:
+            </span> {{ info.name }}
         </h2>
 
         <h3 v-if="info.original_title && info.original_title != info.title">
-            Titolo originale: {{ info.original_title }}
+            <span class="title">
+                Titolo originale:
+            </span>{{ info.original_title }}
         </h3>
 
         <h3 v-else-if="info.original_original && info.original_title != info.title">
-            Nome originale: {{ info.original_name }}
+            <span class="title">
+                Nome originale:
+            </span>{{ info.original_name }}
         </h3>
 
         <div class="lang">
-            Lingua: <img :src="getFlag" :alt="info.original_language" class="flag" v-if="info.original_language">
+            <span class="title">
+                Lingua:
+            </span>
+            <img :src="getFlag" :alt="info.original_language" class="flag" v-if="info.original_language">
 
-            <span v-else> Non presente</span>
+            <span class="title" v-else> Non presente</span>
         </div>
 
 
@@ -97,7 +108,9 @@ export default {
         </div>
 
         <div v-else>
-            Voto non disponibile
+            <span class="title">
+                Voto non disponibile
+            </span>
         </div>
 
         <div class="overview">
@@ -109,6 +122,18 @@ export default {
 
 <style lang="scss" scoped>
 @use '../styles/partials/variables' as *;
+
+h2 {
+    font-weight: normal;
+}
+
+h3 {
+    font-weight: normal;
+}
+
+.title {
+    font-weight: bold;
+}
 
 .path {
     height: 250px;
