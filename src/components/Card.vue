@@ -63,41 +63,46 @@ export default {
     <img :src="'https://image.tmdb.org/t/p/w342/' + info.poster_path" :alt="info.title ? info.title : info.name"
         class="path">
 
+    <div class="text-card">
+        <h2 v-if="info.title">
+            Titolo: {{ info.title }}
+        </h2>
 
-    <h2 v-if="info.title">
-        Titolo: {{ info.title }}
-    </h2>
+        <h2 v-else>
+            Nome: {{ info.name }}
+        </h2>
 
-    <h2 v-else>
-        Nome: {{ info.name }}
-    </h2>
+        <h3 v-if="info.original_title && info.original_title != info.title">
+            Titolo originale: {{ info.original_title }}
+        </h3>
 
-    <h3 v-if="info.original_title && info.original_title != info.title">
-        Titolo originale: {{ info.original_title }}
-    </h3>
+        <h3 v-else-if="info.original_original && info.original_title != info.title">
+            Nome originale: {{ info.original_name }}
+        </h3>
 
-    <h3 v-else-if="info.original_original && info.original_title != info.title">
-        Nome originale: {{ info.original_name }}
-    </h3>
+        <div class="lang">
+            Lingua: <img :src="getFlag" :alt="info.original_language" class="flag" v-if="info.original_language">
 
-    <div class="lang">
-        Lingua: <img :src="getFlag" :alt="info.original_language" class="flag" v-if="info.original_language">
-
-        <span v-else> Non presente</span>
-    </div>
-
-
-    <div class="vote" v-if="info.vote_average">
-        <div v-for="stars in int">
-            <font-awesome-icon icon="fa-solid fa-star" />
+            <span v-else> Non presente</span>
         </div>
-        <div v-for="stars in 5 - int">
-            <font-awesome-icon icon="fa-regular fa-star" />
-        </div>
-    </div>
 
-    <div v-else>
-        Voto non disponibile
+
+        <div class="vote" v-if="info.vote_average">
+            <div v-for="stars in int">
+                <font-awesome-icon icon="fa-solid fa-star" />
+            </div>
+            <div v-for="stars in 5 - int">
+                <font-awesome-icon icon="fa-regular fa-star" />
+            </div>
+        </div>
+
+        <div v-else>
+            Voto non disponibile
+        </div>
+
+        <div class="overview">
+            {{ info.overview }}
+        </div>
     </div>
 
 </template>
@@ -105,18 +110,32 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/partials/variables' as *;
 
-.flag {
-    width: 19px;
-    height: 13px;
-}
-
 .path {
     height: 250px;
     width: 100%;
     border: 1px solid #fff;
 }
 
-.vote {
-    display: flex;
+.text-card {
+
+    background-color: #000;
+    color: #fff;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    display: none;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    overflow-y: auto;
+    padding: 10px;
+
+    .flag {
+        width: 19px;
+        height: 13px;
+    }
+
+    .vote {
+        display: flex;
+    }
 }
 </style>
