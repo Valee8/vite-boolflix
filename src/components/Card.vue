@@ -4,7 +4,7 @@ export default {
     props: ["info"],
     data() {
         return {
-            int: parseInt(this.info.vote_average / 2),
+            int: parseInt(Math.round(this.info.vote_average) / 2),
             flags: [
                 {
                     flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_italy.png',
