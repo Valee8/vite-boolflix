@@ -7,35 +7,35 @@ export default {
             int: parseInt(Math.round(this.info.vote_average) / 2),
             flags: [
                 {
-                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_italy.png',
+                    flag: '/img/italy-flag.png',
                     text: 'it'
                 },
                 {
-                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_france.png',
+                    flag: '/img/france-flag.png',
                     text: 'fr'
                 },
                 {
-                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_england.png',
+                    flag: '/img/england-flag.png',
                     text: 'en'
                 },
                 {
-                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_japan.png',
+                    flag: '/img/japan-flag.png',
                     text: 'ja'
                 },
                 {
-                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_germany.png',
+                    flag: '/img/germany-flag.png',
                     text: 'de'
                 },
                 {
-                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_spain.png',
+                    flag: '/img/spain-flag.png',
                     text: 'es'
                 },
                 {
-                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_portugal.png',
+                    flag: '/img/portugal-flag.png',
                     text: 'pt'
                 },
                 {
-                    flag: 'https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/16x16/plain/flag_poland.png',
+                    flag: '/img/poland-flag.png',
                     text: 'pl'
                 }
             ]
@@ -61,7 +61,6 @@ export default {
 
     <img v-if="info.poster_path" :src="'https://image.tmdb.org/t/p/w342/' + info.poster_path"
         :alt="info.title ? info.title : info.name">
-
 
     <h2 v-if="info.title">
         Titolo: {{ info.title }}
