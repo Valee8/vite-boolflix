@@ -87,7 +87,7 @@ export default {
             </span>{{ info.original_title }}
         </h3>
 
-        <h3 v-else-if="info.original_original && info.original_title != info.title">
+        <h3 v-else-if="info.original_name && info.original_name != info.name">
             <span class="title">
                 Nome originale:
             </span>{{ info.original_name }}
