@@ -33,6 +33,9 @@ export default {
 .card {
     width: calc(20% - 20px);
     margin: 10px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
 }
 
 .card.no-path {
