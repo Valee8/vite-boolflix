@@ -78,7 +78,7 @@ export default {
         Nome originale: {{ info.original_name }}
     </h3>
 
-    Lingua: <img :src="getFlag" :alt="info.original_language">
+    Lingua: <img :src="getFlag" :alt="info.original_language" class="flag">
 
     <div class="vote" v-if="info.vote_average">
         Voto: {{ info.vote_average }}
@@ -94,4 +94,9 @@ export default {
 
 <style lang="scss" scoped>
 @use '../styles/partials/variables' as *;
+
+.flag {
+    width: 19px;
+    height: 13px;
+}
 </style>
