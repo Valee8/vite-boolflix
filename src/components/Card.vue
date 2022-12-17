@@ -122,7 +122,9 @@ export default {
         </div>
 
         <div class="overview">
-            {{ info.overview }}
+            <span class="title">
+                Overview:
+            </span>{{ info.overview }}
         </div>
     </div>
 
