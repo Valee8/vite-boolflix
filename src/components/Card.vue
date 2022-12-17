@@ -108,4 +108,8 @@ export default {
     width: 19px;
     height: 13px;
 }
+
+.vote {
+    display: flex;
+}
 </style>
