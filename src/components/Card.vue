@@ -103,6 +103,10 @@ export default {
         </div>
     </div>
 
+    <div v-else>
+        Voto non disponibile
+    </div>
+
 </template>
 
 <style lang="scss" scoped>
