@@ -60,7 +60,8 @@ export default {
 
 <template>
 
-    <img :src="'https://image.tmdb.org/t/p/w342/' + info.poster_path" :alt="info.title ? info.title : info.name">
+    <img :src="'https://image.tmdb.org/t/p/w342/' + info.poster_path" :alt="info.title ? info.title : info.name"
+        class="path">
 
 
     <h2 v-if="info.title">
@@ -107,6 +108,12 @@ export default {
 .flag {
     width: 19px;
     height: 13px;
+}
+
+.path {
+    height: 250px;
+    width: 100%;
+    border: 1px solid #fff;
 }
 
 .vote {
