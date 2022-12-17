@@ -25,4 +25,8 @@ export default {
 
 <style lang="scss">
 @use '../src/styles/general.scss' as *;
+
+.card:hover .text-card {
+  display: block;
+}
 </style>
