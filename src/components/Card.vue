@@ -79,12 +79,14 @@ export default {
         Nome originale: {{ info.original_name }}
     </h3>
 
-    Lingua: <img :src="getFlag" :alt="info.original_language" class="flag" v-if="info.original_language">
+    <div class="lang">
+        Lingua: <img :src="getFlag" :alt="info.original_language" class="flag" v-if="info.original_language">
 
-    <span v-else> Non presente</span>
+        <span v-else> Non presente</span>
+    </div>
+
 
     <div class="vote" v-if="info.vote_average">
-        Voto: {{ info.vote_average }}
         <div v-for="stars in int">
             <font-awesome-icon icon="fa-solid fa-star" />
         </div>
