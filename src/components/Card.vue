@@ -121,10 +121,14 @@ export default {
             </span>
         </div>
 
-        <div class="overview">
+        <div class="overview" v-if="info.overview">
             <span class="title">
                 Overview:
             </span>{{ info.overview }}
+        </div>
+
+        <div v-else>
+            Overview non presente
         </div>
     </div>
 
