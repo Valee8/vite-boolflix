@@ -99,11 +99,14 @@ export default {
 
 
         <div class="vote" v-if="info.vote_average">
+            <span class="title">
+                Voto:
+            </span>
             <div v-for="stars in int">
-                <font-awesome-icon icon="fa-solid fa-star" />
+                <font-awesome-icon icon="fa-solid fa-star" class="star" />
             </div>
             <div v-for="stars in 5 - int">
-                <font-awesome-icon icon="fa-regular fa-star" />
+                <font-awesome-icon icon="fa-regular fa-star" class="star " />
             </div>
         </div>
 
@@ -169,6 +172,15 @@ export default {
 
     .vote {
         display: flex;
+
+        .title {
+            padding-right: 3px;
+        }
+
+        .star {
+            color: #FFBD00;
+            font-size: 0.9rem;
+        }
     }
 }
 </style>
