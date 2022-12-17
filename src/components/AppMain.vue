@@ -43,6 +43,6 @@ export default {
 .container {
     display: flex;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 20px 0;
 }
 </style>
