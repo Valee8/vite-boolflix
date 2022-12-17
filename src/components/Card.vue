@@ -4,6 +4,7 @@ export default {
     props: ["info"],
     data() {
         return {
+            image: '',
             int: parseInt(Math.round(this.info.vote_average) / 2),
             flags: [
                 {
@@ -52,6 +53,16 @@ export default {
                 }
             }
 
+        },
+        getImage() {
+            if (this.info.poster_path) {
+                this.image = "https://image.tmdb.org/t/p/w342/" + this.info.poster_path;
+            }
+            else {
+                this.image = "/img/copertina-non-disponibile.jpg";
+            }
+
+            return this.image
         }
     }
 }
@@ -59,8 +70,8 @@ export default {
 
 <template>
 
-    <img v-if="info.poster_path" :src="'https://image.tmdb.org/t/p/w342/' + info.poster_path"
-        :alt="info.title ? info.title : info.name">
+    <img :src="getImage" :alt="info.title ? info.title : info.name">
+
 
     <h2 v-if="info.title">
         Titolo: {{ info.title }}
