@@ -22,4 +22,9 @@ export default {
 
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
+
+h1 {
+    color: red;
+    text-transform: uppercase;
+}
 </style>
