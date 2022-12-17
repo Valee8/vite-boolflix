@@ -70,9 +70,15 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header {
+    background-color: #000;
+    height: 80px;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
 }
 </style>
