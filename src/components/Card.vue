@@ -168,6 +168,7 @@ export default {
     .flag {
         width: 19px;
         height: 13px;
+        vertical-align: middle;
     }
 
     .vote {
