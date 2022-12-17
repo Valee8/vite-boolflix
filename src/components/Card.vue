@@ -4,7 +4,6 @@ export default {
     props: ["info"],
     data() {
         return {
-            image: '',
             int: parseInt(Math.round(this.info.vote_average) / 2),
             flags: [
                 {
@@ -38,6 +37,10 @@ export default {
                 {
                     flag: '/img/poland-flag.png',
                     text: 'pl'
+                },
+                {
+                    flag: '/img/no-flag.png',
+                    text: 'no-flag'
                 }
             ]
         }
@@ -52,6 +55,8 @@ export default {
 
                 }
             }
+
+            return this.flags[this.flags.length - 1].flag
 
         }
     }
