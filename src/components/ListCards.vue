@@ -36,7 +36,6 @@ export default {
     height: 250px;
     position: relative;
     overflow: hidden;
-    font-size: 0.8rem;
 }
 
 .card.no-path {

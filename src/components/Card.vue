@@ -123,18 +123,6 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/partials/variables' as *;
 
-h2 {
-    font-weight: normal;
-}
-
-h3 {
-    font-weight: normal;
-}
-
-.title {
-    font-weight: bold;
-}
-
 .path {
     height: 250px;
     width: 100%;
@@ -153,6 +141,26 @@ h3 {
     height: calc(100% - 2px);
     overflow-y: auto;
     padding: 10px;
+
+    &>* {
+
+        font-size: 0.8rem;
+        padding: 2px;
+
+    }
+
+
+    h2 {
+        font-weight: normal;
+    }
+
+    h3 {
+        font-weight: normal;
+    }
+
+    .title {
+        font-weight: bold;
+    }
 
     .flag {
         width: 19px;
