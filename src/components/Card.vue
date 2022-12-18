@@ -66,7 +66,9 @@ export default {
 <template>
 
     <img :src="'https://image.tmdb.org/t/p/w342/' + info.poster_path" :alt="info.title ? info.title : info.name"
-        class="path">
+        class="path" v-if="info.poster_path != null || info.poster_path != undefined">
+
+    <img src="/img/copertina-non-disponibile.jpg" :alt="info.title ? info.title : info.name" class="path" v-else>
 
     <div class="text-card">
         <h2 v-if="info.title">
