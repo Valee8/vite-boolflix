@@ -141,7 +141,7 @@ export default {
 @use '../styles/partials/variables' as *;
 
 .path {
-    height: 250px;
+    height: 100%;
     width: 100%;
     border: 1px solid #fff;
 }
