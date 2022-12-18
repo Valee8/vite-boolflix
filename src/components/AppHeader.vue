@@ -25,12 +25,12 @@ export default {
             let myUrl = store.apiURL;
 
             if (store.searchText != "") {
-                myUrl += `multi?${store.apiKey}&query=${store.searchText}`;
+                myUrl += `search/multi?${store.apiKey}&query=${store.searchText}`;
 
             }
 
             else {
-                myUrl += `trending?${store.apiKey}`;
+                myUrl += `trending/all/week?${store.apiKey}`;
             }
 
             axios
