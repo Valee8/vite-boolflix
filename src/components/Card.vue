@@ -5,6 +5,7 @@ export default {
     data() {
         return {
             int: parseInt(Math.round(this.info.vote_average) / 2),
+            numMaxStars: 5,
             flags: [
                 {
                     flag: '/img/italy-flag.png',
@@ -113,7 +114,7 @@ export default {
                 <span v-for="stars in int">
                     <font-awesome-icon icon="fa-solid fa-star" class="star" />
                 </span>
-                <span v-for="stars in 5 - int">
+                <span v-for="stars in numMaxStars - int">
                     <font-awesome-icon icon="fa-regular fa-star" class="star " />
                 </span>
             </span>
