@@ -103,32 +103,35 @@ export default {
         </div>
 
 
-        <div class="vote" v-if="info.vote_average">
+        <div class="vote">
             <span class="title">
                 Voto:
             </span>
-            <div v-for="stars in int">
-                <font-awesome-icon icon="fa-solid fa-star" class="star" />
-            </div>
-            <div v-for="stars in 5 - int">
-                <font-awesome-icon icon="fa-regular fa-star" class="star " />
-            </div>
-        </div>
+            <span v-if="info.vote_average" class="stars">
+                <span v-for="stars in int">
+                    <font-awesome-icon icon="fa-solid fa-star" class="star" />
+                </span>
+                <span v-for="stars in 5 - int">
+                    <font-awesome-icon icon="fa-regular fa-star" class="star " />
+                </span>
+            </span>
 
-        <div v-else>
-            <span class="title">
-                Voto non disponibile
+            <span v-else>
+                non disponibile
             </span>
         </div>
 
-        <div class="overview" v-if="info.overview">
+        <div class="overview">
             <span class="title">
                 Overview:
-            </span>{{ info.overview }}
-        </div>
+            </span>
+            <span v-if="info.overview">
+                {{ info.overview }}
+            </span>
 
-        <div v-else>
-            Overview non presente
+            <span v-else>
+                non presente
+            </span>
         </div>
     </div>
 
@@ -182,17 +185,10 @@ export default {
         vertical-align: middle;
     }
 
-    .vote {
-        display: flex;
-
-        .title {
-            padding-right: 3px;
-        }
-
-        .star {
-            color: #FFBD00;
-            font-size: 0.9rem;
-        }
+    .star {
+        color: #FFBD00;
+        font-size: 0.9rem;
     }
+
 }
 </style>
