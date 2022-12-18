@@ -21,16 +21,16 @@ export default {
     },
     methods: {
         getFilms() {
+
             let myUrl = store.apiURL;
 
             if (store.searchText != "") {
-                myUrl += `&query=${store.searchText}`;
+                myUrl += `multi?${store.apiKey}&query=${store.searchText}`;
 
-                console.log(myUrl);
             }
 
             else {
-                myUrl += "&query=?";
+                myUrl += `trending?${store.apiKey}`;
             }
 
             axios
