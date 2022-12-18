@@ -14,7 +14,9 @@ export default {
 <template>
 
     <h1>
-        {{ title }}
+        <a href="/">
+            {{ title }}
+        </a>
     </h1>
 
 
@@ -24,7 +26,9 @@ export default {
 @use '../styles/general.scss' as *;
 
 h1 {
-    color: red;
-    text-transform: uppercase;
+    a {
+        color: red;
+        text-transform: uppercase;
+    }
 }
 </style>
