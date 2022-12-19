@@ -59,6 +59,30 @@ export default {
 
             return this.flags[this.flags.length - 1].flag
 
+        },
+        getPath() {
+            if (this.info.poster_path) {
+                return "https://image.tmdb.org/t/p/w342/" + this.info.poster_path
+            }
+            else {
+                return "/img/copertina-non-disponibile.jpg"
+            }
+        },
+        getTitle() {
+            if (this.info.title) {
+                return this.info.title
+            }
+            else {
+                return this.info.name
+            }
+        },
+        getOverview() {
+            if (this.info.overview) {
+                return this.info.overview
+            }
+            else {
+                return "Non presente"
+            }
         }
     }
 }
@@ -66,22 +90,14 @@ export default {
 
 <template>
 
-    <img :src="'https://image.tmdb.org/t/p/w342/' + info.poster_path" :alt="info.title ? info.title : info.name"
-        class="path" v-if="info.poster_path">
-
-    <img src="/img/copertina-non-disponibile.jpg" :alt="info.title ? info.title : info.name" class="path" v-else>
+    <img :src="getPath" class="path">
 
     <div class="text-card">
-        <h2 v-if="info.title">
+        <h2>
             <span class="title">
                 Titolo:
-            </span> {{ info.title }}
-        </h2>
-
-        <h2 v-else>
-            <span class="title">
-                Nome:
-            </span> {{ info.name }}
+            </span>
+            {{ getTitle }}
         </h2>
 
         <h3 v-if="info.original_title && info.original_title != info.title">
@@ -128,13 +144,7 @@ export default {
             <span class="title">
                 Overview:
             </span>
-            <span v-if="info.overview">
-                {{ info.overview }}
-            </span>
-
-            <span v-else>
-                non presente
-            </span>
+            {{ getOverview }}
         </div>
     </div>
 
