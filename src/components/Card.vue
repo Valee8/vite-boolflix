@@ -80,7 +80,7 @@ export default {
             if (this.info.original_title) {
                 return this.info.original_title
             }
-            else if (this.info.original_name) {
+            else {
                 return this.info.original_name
             }
         },
