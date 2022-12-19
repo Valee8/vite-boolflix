@@ -103,23 +103,22 @@ export default {
     <ul class="text-card">
         <li>
             <h2>
-                <span class="title">
+                <span class="info">
                     Titolo:
-                </span>
-                {{ getTitle }}
+                </span> {{ getTitle }}
             </h2>
         </li>
 
         <li>
             <h3 v-if="info.original_title != info.title || info.original_name != info.name">
-                <span class="title">
+                <span class="info">
                     Titolo originale:
-                </span>{{ getOriginalTitle }}
+                </span> {{ getOriginalTitle }}
             </h3>
         </li>
 
         <li class="lang">
-            <span class="title">
+            <span class="info">
                 Lingua:
             </span>
             <img :src="getFlag" :alt="info.original_language" class="flag" v-if="info.original_language">
@@ -129,7 +128,7 @@ export default {
 
 
         <li class="vote">
-            <span class="title">
+            <span class="info">
                 Voto:
             </span>
             <span v-if="info.vote_average" class="stars">
@@ -147,10 +146,9 @@ export default {
         </li>
 
         <li class="overview">
-            <span class="title">
+            <span class="info">
                 Overview:
-            </span>
-            {{ getOverview }}
+            </span> {{ getOverview }}
         </li>
     </ul>
 
@@ -177,26 +175,22 @@ export default {
     height: calc(100% - 2px);
     overflow-y: auto;
     padding: 10px;
+    font-size: 0.8rem;
 
     li {
-
-        font-size: 0.8rem;
         padding: 2px;
 
+        h2,
+        h3 {
+            font-size: 0.8rem;
+            font-weight: normal;
+        }
+
+        .info {
+            font-weight: bold;
+        }
     }
 
-
-    h2 {
-        font-weight: normal;
-    }
-
-    h3 {
-        font-weight: normal;
-    }
-
-    .title {
-        font-weight: bold;
-    }
 
     .flag {
         width: 19px;
