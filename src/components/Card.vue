@@ -76,6 +76,14 @@ export default {
                 return this.info.name
             }
         },
+        getOriginalTitle() {
+            if (this.info.original_title) {
+                return this.info.original_title
+            }
+            else if (this.info.original_name) {
+                return this.info.original_name
+            }
+        },
         getOverview() {
             if (this.info.overview) {
                 return this.info.overview
@@ -100,16 +108,10 @@ export default {
             {{ getTitle }}
         </h2>
 
-        <h3 v-if="info.original_title && info.original_title != info.title">
+        <h3 v-if="info.original_title != info.title || info.original_name != info.name">
             <span class="title">
                 Titolo originale:
-            </span>{{ info.original_title }}
-        </h3>
-
-        <h3 v-else-if="info.original_name && info.original_name != info.name">
-            <span class="title">
-                Nome originale:
-            </span>{{ info.original_name }}
+            </span>{{ getOriginalTitle }}
         </h3>
 
         <div class="lang">
