@@ -17,7 +17,9 @@ export default {
 
   <main>
 
-    <AppMain />
+    <div class="overflow">
+      <AppMain />
+    </div>
 
   </main>
 
@@ -28,5 +30,15 @@ export default {
 
 .card:hover .text-card {
   display: block;
+}
+
+main {
+  height: calc(100vh - 80px);
+  overflow: hidden;
+
+  .overflow {
+    overflow-x: auto;
+    height: 100%;
+  }
 }
 </style>
