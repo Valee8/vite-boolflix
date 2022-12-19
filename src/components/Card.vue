@@ -100,31 +100,35 @@ export default {
 
     <img :src="getPath" class="path">
 
-    <div class="text-card">
-        <h2>
-            <span class="title">
-                Titolo:
-            </span>
-            {{ getTitle }}
-        </h2>
+    <ul class="text-card">
+        <li>
+            <h2>
+                <span class="title">
+                    Titolo:
+                </span>
+                {{ getTitle }}
+            </h2>
+        </li>
 
-        <h3 v-if="info.original_title != info.title || info.original_name != info.name">
-            <span class="title">
-                Titolo originale:
-            </span>{{ getOriginalTitle }}
-        </h3>
+        <li>
+            <h3 v-if="info.original_title != info.title || info.original_name != info.name">
+                <span class="title">
+                    Titolo originale:
+                </span>{{ getOriginalTitle }}
+            </h3>
+        </li>
 
-        <div class="lang">
+        <li class="lang">
             <span class="title">
                 Lingua:
             </span>
             <img :src="getFlag" :alt="info.original_language" class="flag" v-if="info.original_language">
 
             <span class="title" v-else> Non presente</span>
-        </div>
+        </li>
 
 
-        <div class="vote">
+        <li class="vote">
             <span class="title">
                 Voto:
             </span>
@@ -140,15 +144,15 @@ export default {
             <span v-else>
                 non disponibile
             </span>
-        </div>
+        </li>
 
-        <div class="overview">
+        <li class="overview">
             <span class="title">
                 Overview:
             </span>
             {{ getOverview }}
-        </div>
-    </div>
+        </li>
+    </ul>
 
 </template>
 
@@ -162,7 +166,7 @@ export default {
 }
 
 .text-card {
-
+    list-style-type: none;
     background-color: #000;
     color: #fff;
     position: absolute;
@@ -174,7 +178,7 @@ export default {
     overflow-y: auto;
     padding: 10px;
 
-    &>* {
+    li {
 
         font-size: 0.8rem;
         padding: 2px;
