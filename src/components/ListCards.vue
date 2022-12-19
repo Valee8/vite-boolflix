@@ -21,7 +21,7 @@ export default {
 
 <template>
 
-    <div v-for="card in store.cardsList" :key="card.id" class="card">
+    <div v-for="(card, index) in store.cardsList" :key="index" class="card">
         <Card :info="card" />
     </div>
 
