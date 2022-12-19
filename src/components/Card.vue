@@ -123,7 +123,7 @@ export default {
             </span>
             <img :src="getFlag" :alt="info.original_language" class="flag" v-if="info.original_language">
 
-            <span class="title" v-else> Non presente</span>
+            <span class="info" v-else> Non presente</span>
         </li>
 
 
