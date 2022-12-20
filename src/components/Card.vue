@@ -205,7 +205,7 @@ export default {
         </li>
 
         <!-- Nomi attori -->
-        <li>
+        <li v-if="actors.length != 0">
             <span class="info">
                 Attori:
             </span>{{ getNames }}
