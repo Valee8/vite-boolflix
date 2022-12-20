@@ -18,28 +18,42 @@ export default {
     data() {
         return {
             store,
+            myUrl: '',
+            title: '',
         }
     },
     methods: {
         getCards() {
 
-            let myUrl = store.apiURL;
+            this.myUrl = store.apiURL;
 
             if (store.searchText != "") {
-                myUrl += `search/multi?${store.apiKey}&query=${store.searchText}`;
+                this.myUrl += `search/multi?${store.apiKey}&query=${store.searchText}`;
             }
             else {
-                myUrl += `trending/all/week?${store.apiKey}`;
+                this.myUrl += `trending/all/week?${store.apiKey}`;
             }
 
             axios
-                .get(myUrl)
+                .get(this.myUrl)
                 .then(res => {
                     store.cardsList = res.data.results;
                 })
                 .catch(error => {
                     console.log("Errori: ", error);
                 });
+        }
+    },
+    computed: {
+        getTitle() {
+            if (!this.myUrl.includes("search")) {
+                this.title = "Trending";
+            }
+            else {
+                this.title = "Results for: " + this.store.searchText;
+            }
+
+            return this.title;
         }
     },
     mounted() {
@@ -52,14 +66,22 @@ export default {
 <template>
 
     <header>
-        <div class="container">
-            <div class="logo">
-                <AppLogo />
-            </div>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <AppLogo />
+                </div>
 
-            <div class="search">
-                <AppSearch @search="getCards" />
+                <div class="search">
+                    <AppSearch @search="getCards" />
+                </div>
             </div>
+        </nav>
+
+        <div class="container title">
+            <h2>
+                {{ getTitle }}
+            </h2>
         </div>
     </header>
 
@@ -69,7 +91,7 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/general.scss' as *;
 
-header {
+nav {
     background-color: #000;
     height: 80px;
 

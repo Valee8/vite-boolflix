@@ -32,10 +32,19 @@ export default {
   display: block;
 }
 
+h2 {
+  font-size: 2.5rem;
+}
+
+.container.title {
+  height: 80px;
+  line-height: 80px;
+}
+
 main {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 160px);
   overflow: hidden;
-  padding: 20px 0;
+  padding-bottom: 20px;
 
   .overflow {
     overflow-x: auto;
