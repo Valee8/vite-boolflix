@@ -189,7 +189,7 @@ export default {
             </span>
         </li>
 
-        <li v-if="id === info.id">
+        <li>
             <span class="info">
                 Attori:
             </span>{{ getNames }}
