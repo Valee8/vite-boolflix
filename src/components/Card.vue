@@ -54,6 +54,7 @@ export default {
         }
     },
     computed: {
+        // Funzione per far comparire bandiera a seconda della lingua
         getFlag() {
 
             for (let i = 0; i < this.flags.length; i++) {
@@ -64,17 +65,21 @@ export default {
                 }
             }
 
+            // Se non presente in nell'array flags compare quella arcobaleno
             return this.flags[this.flags.length - 1].flag
 
         },
+        // Funzione per far comparire immagine copertina
         getPath() {
             if (this.info.poster_path) {
                 return "https://image.tmdb.org/t/p/w342/" + this.info.poster_path
             }
+            // Se non presente compare quest'altra
             else {
                 return "/img/copertina-non-disponibile.jpg"
             }
         },
+        // Funzione per far comparire il titolo del film/serie tv
         getTitle() {
             if (this.info.title) {
                 return this.info.title
@@ -83,6 +88,7 @@ export default {
                 return this.info.name
             }
         },
+        // Funzione per far comparire il titolo originale del film/serie tv
         getOriginalTitle() {
             if (this.info.original_title) {
                 return this.info.original_title
@@ -91,6 +97,7 @@ export default {
                 return this.info.original_name
             }
         },
+        // Funzione per far comparire l'overview
         getOverview() {
             if (this.info.overview) {
                 return this.info.overview
@@ -99,10 +106,12 @@ export default {
                 return "Non presente"
             }
         },
+        // Funzione per far comparire i nomi degli attori
         getNames() {
             return this.actors
         }
     },
+    // Per richiamare getActors e aggiornare gli attori in caso di ricerca
     watch: {
         info() {
             this.getActors();
@@ -110,6 +119,7 @@ export default {
 
     },
     methods: {
+        // Funzione per generare nomi attori
         getActors() {
 
             let urlActors;
@@ -145,9 +155,12 @@ export default {
 
 <template>
 
+    <!-- Immagine copertina -->
     <img :src="getPath" class="path">
 
+    <!-- Inizio info card -->
     <ul class="text-card">
+        <!-- Titolo -->
         <li>
             <h3>
                 <span class="info">
@@ -156,6 +169,7 @@ export default {
             </h3>
         </li>
 
+        <!-- Titolo originale - compare se diverso dal titolo -->
         <li v-if="info.original_title != info.title || info.original_name != info.name">
             <h4>
                 <span class="info">
@@ -164,6 +178,7 @@ export default {
             </h4>
         </li>
 
+        <!-- Lingua con bandiera -->
         <li class="lang">
             <span class="info">
                 Lingua:
@@ -173,7 +188,7 @@ export default {
             <span class="info" v-else> Non presente</span>
         </li>
 
-
+        <!-- Voto con stelle al posto del voto -->
         <li class="vote">
             <span class="info">
                 Voto:
@@ -192,12 +207,14 @@ export default {
             </span>
         </li>
 
+        <!-- Nomi attori -->
         <li>
             <span class="info">
                 Attori:
             </span>{{ getNames }}
         </li>
 
+        <!-- Overview -->
         <li class="overview">
             <span class="info">
                 Overview:
