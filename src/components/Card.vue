@@ -101,9 +101,7 @@ export default {
             }
         },
         getNames() {
-            if (this.id === this.info.id) {
-                return this.actors
-            }
+            return this.actors
         }
     },
     methods: {
