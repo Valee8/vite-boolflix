@@ -1,9 +1,17 @@
 <script>
+
+import axios from 'axios';
+
+import { store } from '../store.js';
+
 export default {
     name: "Card",
     props: ["info"],
     data() {
         return {
+            store,
+            actors: '',
+            id: '',
             int: parseInt(Math.round(this.info.vote_average) / 2),
             numMaxStars: 5,
             flags: [
@@ -91,7 +99,45 @@ export default {
             else {
                 return "Non presente"
             }
+        },
+        getNames() {
+            if (this.id === this.info.id) {
+                return this.actors
+            }
         }
+    },
+    methods: {
+        getActors() {
+
+            let urlActors;
+
+            if (this.info.title) {
+                urlActors = `https://api.themoviedb.org/3/movie/${this.info.id}/credits?api_key=a13e0fd79cfa1dd9f0f1686cc7c31b44`;
+            }
+            else {
+                urlActors = `https://api.themoviedb.org/3/tv/${this.info.id}/credits?api_key=a13e0fd79cfa1dd9f0f1686cc7c31b44`;
+            }
+
+            axios
+                .get(urlActors)
+                .then(res => {
+
+                    for (let i = 0; i < 5; i++) {
+                        this.actors += `${res.data.cast[i].name}, `;
+
+                    }
+
+                    this.id = res.data.id;
+
+
+                })
+                .catch(error => {
+                    console.log("Errori: ", error);
+                });
+        }
+    },
+    mounted() {
+        this.getActors();
     }
 }
 </script>
@@ -143,6 +189,12 @@ export default {
             <span v-else>
                 non disponibile
             </span>
+        </li>
+
+        <li>
+            <span class="info" v-if="id === info.id">
+                Attori:
+            </span>{{ getNames }}
         </li>
 
         <li class="overview">
