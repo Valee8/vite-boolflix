@@ -241,18 +241,17 @@ export default {
         .info {
             font-weight: bold;
         }
-    }
 
+        .flag {
+            width: 19px;
+            height: 13px;
+            vertical-align: middle;
+        }
 
-    .flag {
-        width: 19px;
-        height: 13px;
-        vertical-align: middle;
-    }
-
-    .star {
-        color: #FFBD00;
-        font-size: 0.9rem;
+        .star {
+            color: #FFBD00;
+            font-size: 0.9rem;
+        }
     }
 
 }
