@@ -11,7 +11,6 @@ export default {
         return {
             store,
             actors: '',
-            id: '',
             int: parseInt(Math.round(this.info.vote_average) / 2),
             numMaxStars: 5,
             flags: [
@@ -104,6 +103,12 @@ export default {
             return this.actors
         }
     },
+    watch: {
+        info() {
+            this.getActors();
+        }
+
+    },
     methods: {
         getActors() {
 
@@ -120,13 +125,11 @@ export default {
                 .get(urlActors)
                 .then(res => {
 
+                    this.actors = "";
+
                     for (let i = 0; i < 5; i++) {
-                        this.actors += `${res.data.cast[i].name}, `;
-
+                        this.actors += `${res.data.cast[i].name}`;
                     }
-
-                    this.id = res.data.id;
-
 
                 })
                 .catch(error => {
