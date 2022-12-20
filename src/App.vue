@@ -35,6 +35,7 @@ export default {
 main {
   height: calc(100vh - 80px);
   overflow: hidden;
+  padding: 20px;
 
   .overflow {
     overflow-x: auto;
