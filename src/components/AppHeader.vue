@@ -46,11 +46,12 @@ export default {
     },
     computed: {
         getTitle() {
+
             if (!this.myUrl.includes("search")) {
                 this.title = "Trending";
             }
             else {
-                this.title = "Results for: " + this.store.searchText;
+                this.title = "Results"
             }
 
             return this.title;
