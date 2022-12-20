@@ -21,8 +21,12 @@ export default {
 
 <template>
 
-    <div v-for="(card, index) in store.cardsList" :key="index" class="card">
+    <div v-for="(card, index) in store.cardsList" :key="index" class="card" v-if="store.cardsList.length != 0">
         <Card :info="card" />
+    </div>
+
+    <div v-else>
+        Nessun risultato per la ricerca
     </div>
 
 </template>
