@@ -51,7 +51,7 @@ export default {
                 this.title = "Trending";
             }
             else {
-                this.title = "Results"
+                this.title = "Results";
             }
 
             return this.title;
