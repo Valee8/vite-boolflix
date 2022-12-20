@@ -2,14 +2,11 @@
 
 import axios from 'axios';
 
-import { store } from '../store.js';
-
 export default {
     name: "Card",
     props: ["info"],
     data() {
         return {
-            store,
             actors: '',
             int: parseInt(Math.round(this.info.vote_average) / 2),
             numMaxStars: 5,
@@ -138,7 +135,7 @@ export default {
                     this.actors = "";
 
                     for (let i = 0; i < 5; i++) {
-                        this.actors += `${res.data.cast[i].name}`;
+                        this.actors += `${res.data.cast[i].name}, `;
                     }
 
                 })
@@ -156,7 +153,7 @@ export default {
 <template>
 
     <!-- Immagine copertina -->
-    <img :src="getPath" class="path">
+    <img :src="getPath" class="path" :alt="info.title ? info.title : info.name">
 
     <!-- Inizio info card -->
     <ul class="text-card">
