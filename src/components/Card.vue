@@ -155,8 +155,8 @@ export default {
             </h2>
         </li>
 
-        <li>
-            <h3 v-if="info.original_title != info.title || info.original_name != info.name">
+        <li v-if="info.original_title != info.title || info.original_name != info.name">
+            <h3>
                 <span class="info">
                     Titolo originale:
                 </span> {{ getOriginalTitle }}
@@ -191,8 +191,8 @@ export default {
             </span>
         </li>
 
-        <li>
-            <span class="info" v-if="id === info.id">
+        <li v-if="id === info.id">
+            <span class="info">
                 Attori:
             </span>{{ getNames }}
         </li>
