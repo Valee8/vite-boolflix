@@ -18,8 +18,9 @@ export default {
 
     <div class="container">
         <form>
-            <input type="search" placeholder="Cerca" v-model="store.searchText" class="input-search">
-            <button type="submit" @click.prevent="$emit('search')" class="button-search">Invia</button>
+            <input type="search" placeholder="Cerca una serie TV o un film" v-model="store.searchText"
+                class="input-search">
+            <button type="submit" @click.prevent="$emit('search')" class="button-search">Cerca</button>
         </form>
     </div>
 
@@ -33,14 +34,19 @@ export default {
 
 form>* {
     background-color: #ccc;
-    padding: 5px;
     border-radius: 3px;
     border: 0;
     color: #000;
 }
 
+.input-search {
+    width: 190px;
+    padding: 6px 0 5px 5px;
+}
+
 .button-search {
     margin-left: 5px;
     cursor: pointer;
+    padding: 5px;
 }
 </style>
