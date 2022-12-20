@@ -1,6 +1,7 @@
 <script>
 
 import AppSearch from './AppSearch.vue'
+
 import AppLogo from './AppLogo.vue'
 
 import axios from 'axios';
@@ -20,15 +21,13 @@ export default {
         }
     },
     methods: {
-        getFilms() {
+        getCards() {
 
             let myUrl = store.apiURL;
 
             if (store.searchText != "") {
                 myUrl += `search/multi?${store.apiKey}&query=${store.searchText}`;
-
             }
-
             else {
                 myUrl += `trending/all/week?${store.apiKey}`;
             }
@@ -44,7 +43,7 @@ export default {
         }
     },
     mounted() {
-        this.getFilms();
+        this.getCards();
     }
 }
 
@@ -59,7 +58,7 @@ export default {
             </div>
 
             <div class="search">
-                <AppSearch @search="getFilms" />
+                <AppSearch @search="getCards" />
             </div>
         </div>
     </header>
