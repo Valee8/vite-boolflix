@@ -148,19 +148,19 @@ export default {
 
     <ul class="text-card">
         <li>
-            <h2>
+            <h3>
                 <span class="info">
                     Titolo:
                 </span> {{ getTitle }}
-            </h2>
+            </h3>
         </li>
 
         <li v-if="info.original_title != info.title || info.original_name != info.name">
-            <h3>
+            <h4>
                 <span class="info">
                     Titolo originale:
                 </span> {{ getOriginalTitle }}
-            </h3>
+            </h4>
         </li>
 
         <li class="lang">
@@ -232,8 +232,8 @@ export default {
     li {
         padding: 2px;
 
-        h2,
-        h3 {
+        h3,
+        h4 {
             font-size: 0.8rem;
             font-weight: normal;
         }
